@@ -1,4 +1,4 @@
-package icellar;
+package com.moose.icellar;
 
 import java.io.File;
 import java.io.FileNotFoundException;
