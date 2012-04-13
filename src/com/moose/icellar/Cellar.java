@@ -426,7 +426,7 @@ public class Cellar {
      */
     public void sortByRating() {
         Object[] arr = bottles.toArray();
-        arr = quicksortVineyard(arr, arr.length / 2);
+        arr = quicksortRating(arr, arr.length / 2);
         bottles = new ArrayList<Bottle>();
         //populate the new ArrayList with the elements in the correct order
         for (Object o : arr) {
