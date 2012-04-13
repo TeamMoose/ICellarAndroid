@@ -1,4 +1,4 @@
-package icellar;
+package com.moose.icellar;
 
 import org.apache.commons.net.ftp.*;
 import java.io.*;

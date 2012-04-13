@@ -93,7 +93,7 @@ public class iCellar extends Activity implements OnItemClickListener{
         	
     		click = new ButtonClicked();
     		
-        	myCellar = new Cellar(this.getResources().openRawResource(R.raw.bottles));
+        	myCellar = FTPHelper.readCellarFromFile();
         	populateButtonsandList();
         	
         	
