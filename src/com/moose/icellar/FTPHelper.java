@@ -1,0 +1,137 @@
+package icellar;
+
+import org.apache.commons.net.ftp.*;
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Alex Mazzeo
+ */
+public class FTPHelper 
+{
+    public static FTPClient client;
+    public static final String urlProtocol = "ftp://";
+    public static final String ftpUser = "iCellar";
+    public static final String ftpPass = "1cellar!";
+    public static final String ftpSite = "ftp.reverteddesigns.com";
+    
+    public FTPHelper()
+    {
+        client = new FTPClient();
+    }
+    
+    public static InputStream getFTPInputStream( String filepath )
+    {
+        client = new FTPClient();
+        try {
+            int reply;
+            client.connect(ftpSite);
+
+            // After connection attempt, you should check the reply code to verify
+            // success.
+            reply = client.getReplyCode();
+
+            if (!FTPReply.isPositiveCompletion(reply))
+            {
+                client.disconnect();
+                System.err.println("FTP server refused connection.");
+                System.exit(1);
+            }
+            client.login(ftpUser, ftpPass, "reverteddesignscom");
+            return client.retrieveFileStream(filepath);
+        } catch (UnknownHostException ex)
+        {
+            System.out.println(ex);
+        }
+            catch (SocketException ex) {
+            Logger.getLogger(FTPHelper.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FTPHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private static BufferedWriter getFTPBufferedWriter( String filepath )
+     {
+        client = new FTPClient();
+        try {
+            int reply;
+            client.connect(ftpSite);
+
+            // After connection attempt, you should check the reply code to verify
+            // success.
+            reply = client.getReplyCode();
+
+            if (!FTPReply.isPositiveCompletion(reply))
+            {
+                client.disconnect();
+                System.err.println("FTP server refused connection.");
+                System.exit(1);
+            }
+            client.login(ftpUser, ftpPass, "reverteddesignscom");
+            return new BufferedWriter ( new OutputStreamWriter ( client.storeFileStream(filepath) ) );
+        } catch (UnknownHostException ex)
+        {
+            System.out.println(ex);
+        }
+            catch (SocketException ex) {
+            Logger.getLogger(FTPHelper.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FTPHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public static void appendToFile( String filepath, String str )
+    {
+        String append = "";
+        InputStream is = getFTPInputStream( filepath );
+        BufferedWriter bw;
+        Scanner scan = new Scanner( is );
+        
+        while ( scan.hasNext() )
+        {
+            append += scan.nextLine() + "\n";
+        }
+        
+        append += str;
+        try {
+            is.close();
+            bw = getFTPBufferedWriter( filepath );
+            bw.write(append);
+            bw.flush();
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(FTPHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
+    
+    public static Cellar readCellarFromFile( String filepath )
+    {
+        InputStream is = getFTPInputStream( filepath );
+        Cellar result = new Cellar( is );
+        try {
+            is.close();
+        } catch (IOException ex) {
+            Logger.getLogger(FTPHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+        
+    }
+    
+    public static void writeCellarToFile( String filepath, Cellar myCellar )
+    {
+        BufferedWriter bw = getFTPBufferedWriter( filepath );
+        try {
+            bw.write(myCellar.toString());
+            bw.flush();
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(FTPHelper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}
