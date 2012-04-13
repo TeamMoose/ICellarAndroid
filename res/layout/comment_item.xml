@@ -10,22 +10,22 @@
     android:orientation="vertical">
       
 		<TextView 
-		    android:id="@+id/maker"
+		    android:id="@+id/text"
       		android:layout_width="wrap_content"
       		android:layout_height="wrap_content"
-      		android:textSize="25dp"
+      		android:textSize="20dp"
       		android:gravity="center"
       		android:textColor="@drawable/iBurg"/>
   
 		<TextView 
-		    android:id="@+id/year" 
+		    android:id="@+id/user" 
       		android:layout_width="wrap_content" 
       		android:layout_height="wrap_content"
       		android:layout_marginLeft="10dp" 
       		android:textColor="@drawable/iBlue"/>
 		
 		<TextView 
-		    android:id="@+id/type" 
+		    android:id="@+id/date" 
       		android:layout_width="wrap_content" 
       		android:layout_height="wrap_content"
       		android:layout_marginLeft="10dp" 

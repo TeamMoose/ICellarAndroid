@@ -13,26 +13,368 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:id="@android:id/tabcontent">
+	    
+         
      
+     
+	 <!-- Main Cellar Wine List ================================================================================================================= -->
      <LinearLayout
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:id="@+id/tab1"
-	    android:orientation="vertical"
-	    android:paddingTop="60dp">
-	    
-     <ListView  
-	    android:layout_width="fill_parent" 
-	    android:layout_height="325dp" 
-	    android:id="@android:id/list"/>   
+	    android:paddingTop="63dp"
+	    android:orientation="vertical">
 	 
-     <Button
+     <Button 
          android:layout_width="fill_parent"
          android:layout_height="50dp"
+         android:id="@+id/add"
          android:text="Add Bottle"
-         android:id="@+id/add"/>
-     </LinearLayout>
+         android:textColor="@drawable/iKhak"
+         android:background="@drawable/iBlue"/>
      
+     <ListView  
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content" 
+	    android:cacheColorHint="@drawable/iKhak"
+	    android:id="@+id/lv1"/>  
+	 </LinearLayout>
+	 <!-- ================================================================================================================= -->
+     
+	 
+	 
+	 <!-- Bottle View================================================================================================================= -->
+     <RelativeLayout
+         android:id="@+id/bott"
+         android:layout_height="fill_parent"
+         android:layout_width="fill_parent"
+         android:paddingTop="63dp">
+     
+        <Button
+            android:id="@+id/ret"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:text="Return to Cellar" 
+            android:textColor="@drawable/iKhak"
+            android:background="@drawable/iBlue"/>
+        
+        <RelativeLayout
+         android:id="@+id/makerInfo"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/ret"
+         android:paddingTop="1dp">
+         
+        <TextView
+            android:id="@+id/mkrtit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maker"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <TextView
+            android:id="@+id/mkr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/>   
+        </RelativeLayout>
+        
+        
+        <RelativeLayout
+         android:id="@+id/typeInfo"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/makerInfo"
+         android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/typtit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <TextView
+            android:id="@+id/typ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/>  
+        </RelativeLayout>
+        
+        <RelativeLayout
+         android:id="@+id/yearInfo"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/typeInfo"
+         android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/yeatit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <TextView
+            android:id="@+id/yea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/>
+        </RelativeLayout>
+        
+        <RelativeLayout
+         android:id="@+id/regionInfo"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/yearInfo"
+         android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/regtit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Region"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <TextView
+            android:id="@+id/reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/> 
+        </RelativeLayout>    
+        
+        <RelativeLayout
+         android:id="@+id/vineyardInfo"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/regionInfo"
+         android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/vintit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vineyard"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <TextView
+            android:id="@+id/vin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/>
+        </RelativeLayout>  
+            
+        <RelativeLayout
+         android:id="@+id/commentInfo"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/vineyardInfo"
+         android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/comtit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comments (Use Finger to Scroll)"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        </RelativeLayout>
+              
+        <ListView  
+		    android:layout_width="fill_parent" 
+		    android:layout_height="114dp" 
+		    android:layout_below="@id/commentInfo"
+		    android:cacheColorHint="@drawable/iKhak"
+		    android:id="@+id/comLS"/> 
+		    
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/comLS"
+            android:layout_alignParentRight="true"
+            android:text="Delete Bottle" 
+            android:textColor="@drawable/iKhak"
+            android:background="@drawable/iBlue"/>
+
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/comLS"
+            android:layout_alignParentLeft="true"
+            android:text="Edit Bottle" 
+            android:textColor="@drawable/iKhak"
+            android:background="@drawable/iBlue"/>
+
+        </RelativeLayout>
+     <!-- ================================================================================================================= -->
+     
+     
+     
+     <!-- Main Add View ================================================================================================================= -->
+     <RelativeLayout
+         android:id="@+id/addbott"
+         android:layout_height="fill_parent"
+         android:layout_width="fill_parent"
+         android:paddingTop="63dp">
+     
+        <Button
+            android:id="@+id/retadd"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:text="Return to Cellar (Discard)" 
+            android:textColor="@drawable/iKhak"
+            android:background="@drawable/iBlue"/>
+        
+        <RelativeLayout
+         android:id="@+id/makerInfoadd"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/retadd"
+         android:paddingTop="1dp">
+         
+        <TextView
+            android:id="@+id/mkrtitadd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maker"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <EditText
+            android:id="@+id/mkradd"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/>   
+            
+        </RelativeLayout>
+        
+        
+        <RelativeLayout
+         android:id="@+id/typeInfoadd"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/makerInfoadd"
+         android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/typtitadd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <EditText
+            android:id="@+id/typadd"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/>   
+        </RelativeLayout>
+        
+        <RelativeLayout
+         android:id="@+id/yearInfoadd"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/typeInfoadd"
+         android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/yeatitadd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <EditText
+            android:id="@+id/yeaadd"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/> 
+        </RelativeLayout>
+        
+        <RelativeLayout
+         android:id="@+id/regionInfoadd"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/yearInfoadd"
+         android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/regtitadd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Region"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <EditText
+            android:id="@+id/regadd"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/>  
+        </RelativeLayout>    
+        
+        <RelativeLayout
+         android:id="@+id/vineyardInfoadd"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/regionInfoadd"
+         android:paddingTop="5dp">
+        <TextView
+            android:id="@+id/vintitadd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vineyard"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <EditText
+            android:id="@+id/vinadd"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/> 
+        </RelativeLayout>  
+		    
+        <Button
+            android:id="@+id/saveadd"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/vineyardInfoadd"
+            android:layout_alignParentRight="true"
+            android:text="Save Bottle" 
+            android:textColor="@drawable/iKhak"
+            android:background="@drawable/iBlue"/>
+        <Button
+            android:id="@+id/save"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/vineyardInfoadd"
+            android:layout_alignParentRight="true"
+            android:text="Save Changes" 
+            android:textColor="@drawable/iKhak"
+            android:background="@drawable/iBlue"/>
+
+        </RelativeLayout>
+     <!-- ================================================================================================================= -->
+     
+     
+     
+     
+     
+     
+     <!-- Main Club View ================================================================================================================= -->
      <LinearLayout
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
@@ -43,9 +385,14 @@
      <TextView  
 	    android:layout_width="fill_parent" 
 	    android:layout_height="100dp" 
-	    android:text="This is tab 2"
-	    android:id="@+id/txt2"/>
+	    android:gravity="center"
+	    android:text="The Wine Club feature is currently under development, check back in Version 2.0!"
+	    android:id="@+id/txt2"
+	    android:textColor="@drawable/iBurg"
+	    android:textSize="17dp"/>
    	 </LinearLayout>
+   	 <!-- ================================================================================================================= -->
    	 
 	</FrameLayout>
+	
 </TabHost>

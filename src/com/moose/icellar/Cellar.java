@@ -537,18 +537,9 @@ public class Cellar {
      * be used to split the {@link String}.
      * @return an array of {@link String}s
      */
-    public String[] toAndroidStringArray()
+    public ArrayList<Bottle> toAndroidStringArray()
     {
-        int i = 0;
-        String[] result = new String[bottles.size()];
-        
-        for ( Bottle btl : bottles )
-        {
-            result[i] = btl.getMaker() + "-" + btl.getType() + "-" + btl.getYear();
-            i++;
-        }
-        
-        return result;
+        return bottles;
     }
     
     private void buildFromFile( String filepath )
