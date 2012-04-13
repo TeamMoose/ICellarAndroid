@@ -97,9 +97,9 @@ public class iCellar extends Activity implements OnItemClickListener{
         	
     		click = new ButtonClicked();
     		
-        	InputStream is = FTPHelper.getAndroidInputStream("Users/gja8Bottles.txt");
-        	myCellar = new Cellar(is);
-        	//myCellar = new Cellar(this.getResources().openRawResource(R.raw.bottles));
+        	//InputStream is = FTPHelper.getAndroidInputStream("Users/gja8Bottles.txt");
+        	//myCellar = new Cellar(is);
+        	myCellar = new Cellar(this.getResources().openRawResource(R.raw.bottles));
         	populateButtonsandList();
         	
         	
@@ -181,38 +181,12 @@ public class iCellar extends Activity implements OnItemClickListener{
     	
 		lv1.setVisibility(View.GONE);
 		add.setVisibility(View.GONE);
+    	
+    	View tView = findViewById(R.id.bott);
+		tView.setVisibility(View.GONE);
 		
-    	mkrtit.setVisibility(View.GONE);
-    	mkr.setVisibility(View.GONE);
-    	typtit.setVisibility(View.GONE);
-    	typ.setVisibility(View.GONE);
-    	yeatit.setVisibility(View.GONE);
-    	yea.setVisibility(View.GONE);
-    	regtit.setVisibility(View.GONE);
-    	reg.setVisibility(View.GONE);
-    	vintit.setVisibility(View.GONE);
-    	vin.setVisibility(View.GONE);
-    	comtit.setVisibility(View.GONE);
-    	comLS.setVisibility(View.GONE);
-    	
-    	ret.setVisibility(View.GONE);
-    	edit.setVisibility(View.GONE);
-    	delete.setVisibility(View.GONE);
-    	
-    	mkrtitadd.setVisibility(View.GONE);
-    	mkradd.setVisibility(View.GONE);
-    	typtitadd.setVisibility(View.GONE);
-    	typadd.setVisibility(View.GONE);
-    	yeatitadd.setVisibility(View.GONE);
-    	yeaadd.setVisibility(View.GONE);
-    	regtitadd.setVisibility(View.GONE);
-    	regadd.setVisibility(View.GONE);
-    	vintitadd.setVisibility(View.GONE);
-    	vinadd.setVisibility(View.GONE);
-    	
-    	retadd.setVisibility(View.GONE);
-    	saveadd.setVisibility(View.GONE);
-    	save.setVisibility(View.GONE);
+		tView = findViewById(R.id.addbott);
+		tView.setVisibility(View.GONE);
 	}
 	
 	public void setListAdapters() {
@@ -233,22 +207,8 @@ public class iCellar extends Activity implements OnItemClickListener{
 		reg.setText(myCell.get(position).getRegion());
 		vin.setText(myCell.get(position).getVineyard());
 		
-		mkrtit.setVisibility(View.VISIBLE);
-    	mkr.setVisibility(View.VISIBLE);
-    	typtit.setVisibility(View.VISIBLE);
-    	typ.setVisibility(View.VISIBLE);
-    	yeatit.setVisibility(View.VISIBLE);
-    	yea.setVisibility(View.VISIBLE);
-    	regtit.setVisibility(View.VISIBLE);
-    	reg.setVisibility(View.VISIBLE);
-    	vintit.setVisibility(View.VISIBLE);
-    	vin.setVisibility(View.VISIBLE);
-    	comtit.setVisibility(View.VISIBLE);
-    	comLS.setVisibility(View.VISIBLE);
-    	
-    	ret.setVisibility(View.VISIBLE);
-    	edit.setVisibility(View.VISIBLE);
-    	delete.setVisibility(View.VISIBLE);
+		View tView = findViewById(R.id.bott);
+		tView.setVisibility(View.VISIBLE);
 
 		
 	}
@@ -288,6 +248,10 @@ public class iCellar extends Activity implements OnItemClickListener{
 				
 				View temp = findViewById(R.id.addbott);
 				temp.setVisibility(View.GONE);
+				temp = findViewById(R.id.saveadd);
+				temp.setVisibility(View.VISIBLE);
+				temp = findViewById(R.id.save);
+				temp.setVisibility(View.GONE);
 		    	
 		    	delete.setText("Delete Bottle");
 		    	delInt = 0;
@@ -301,6 +265,7 @@ public class iCellar extends Activity implements OnItemClickListener{
 			}
 			if(v.getId() == R.id.delete) {
 				if(delInt == 0) {
+					edit.setText("Cancel Delete");
 					delete.setText("Confirm Delete");
 					delInt++;
 				}
@@ -310,26 +275,13 @@ public class iCellar extends Activity implements OnItemClickListener{
 					lv1.setVisibility(View.VISIBLE);
 					add.setVisibility(View.VISIBLE);
 					
-					mkrtit.setVisibility(View.GONE);
-			    	mkr.setVisibility(View.GONE);
-			    	typtit.setVisibility(View.GONE);
-			    	typ.setVisibility(View.GONE);
-			    	yeatit.setVisibility(View.GONE);
-			    	yea.setVisibility(View.GONE);
-			    	regtit.setVisibility(View.GONE);
-			    	reg.setVisibility(View.GONE);
-			    	vintit.setVisibility(View.GONE);
-			    	vin.setVisibility(View.GONE);
-			    	comtit.setVisibility(View.GONE);
-			    	comLS.setVisibility(View.GONE);
-			    	
-			    	ret.setVisibility(View.GONE);
-			    	edit.setVisibility(View.GONE);
-			    	delete.setVisibility(View.GONE);
+					View temp = findViewById(R.id.bott);
+					temp.setVisibility(View.GONE);
 			    	
 			    	setListAdapters();
 			    	
 			    	delete.setText("Delete Bottle");
+			    	edit.setText("Edit Bottle");
 			    	delInt = 0;
 				}
 			}
@@ -339,50 +291,44 @@ public class iCellar extends Activity implements OnItemClickListener{
 				
 				View temp = findViewById(R.id.addbott);
 				temp.setVisibility(View.VISIBLE);
+				temp = findViewById(R.id.save);
+				temp.setVisibility(View.GONE);
 				
 			}
 			if(v.getId() == R.id.edit) {
-				lv1.setVisibility(View.GONE);
-				add.setVisibility(View.GONE);
-				
-				mkrtit.setVisibility(View.GONE);
-		    	mkr.setVisibility(View.GONE);
-		    	typtit.setVisibility(View.GONE);
-		    	typ.setVisibility(View.GONE);
-		    	yeatit.setVisibility(View.GONE);
-		    	yea.setVisibility(View.GONE);
-		    	regtit.setVisibility(View.GONE);
-		    	reg.setVisibility(View.GONE);
-		    	vintit.setVisibility(View.GONE);
-		    	vin.setVisibility(View.GONE);
-		    	comtit.setVisibility(View.GONE);
-		    	comLS.setVisibility(View.GONE);
-		    	
-		    	ret.setVisibility(View.GONE);
-		    	edit.setVisibility(View.GONE);
-		    	delete.setVisibility(View.GONE);
-				
-				mkrtitadd.setVisibility(View.VISIBLE);
-		    	mkradd.setVisibility(View.VISIBLE);
-		    	mkradd.setText(myCell.get(posInt).getMaker());
-		    	typtitadd.setVisibility(View.VISIBLE);
-		    	typadd.setVisibility(View.VISIBLE);
-		    	typadd.setText(myCell.get(posInt).getType());
-		    	yeatitadd.setVisibility(View.VISIBLE);
-		    	yeaadd.setVisibility(View.VISIBLE);
-		    	yeaadd.setText(myCell.get(posInt).getYear());
-		    	regtitadd.setVisibility(View.VISIBLE);
-		    	regadd.setVisibility(View.VISIBLE);
-		    	regadd.setText(myCell.get(posInt).getRegion());
-		    	vintitadd.setVisibility(View.VISIBLE);
-		    	vinadd.setVisibility(View.VISIBLE);
-		    	vinadd.setText(myCell.get(posInt).getVineyard());
-		    	
-		    	retadd.setVisibility(View.VISIBLE);
-		    	save.setVisibility(View.VISIBLE);
+				if(delInt == 1) {
+					delete.setText("Delete Bottle");
+			    	edit.setText("Edit Bottle");
+			    	delInt = 0;
+				}
+				else {
+					lv1.setVisibility(View.GONE);
+					add.setVisibility(View.GONE);
+					
+					View temp = findViewById(R.id.bott);
+					temp.setVisibility(View.GONE);
+					
+					temp = findViewById(R.id.addbott);
+					temp.setVisibility(View.VISIBLE);
+					
+					temp = findViewById(R.id.saveadd);
+					temp.setVisibility(View.GONE);
+					
+					temp = findViewById(R.id.save);
+					temp.setVisibility(View.VISIBLE);
+					
+			    	mkradd.setText(myCell.get(posInt).getMaker());
+			    	typadd.setText(myCell.get(posInt).getType());
+			    	yeaadd.setText(myCell.get(posInt).getYear());
+			    	regadd.setText(myCell.get(posInt).getRegion());
+			    	vinadd.setText(myCell.get(posInt).getVineyard());
+				}
 			}
 			if(v.getId() == R.id.saveadd) {
-				if(mkradd.getText().toString().trim().length() > 0 && typadd.getText().toString().trim().length() > 0 && yeaadd.getText().toString().trim().length() > 0) {
+				if(mkradd.getText().toString().trim().length() > 0 && 
+						typadd.getText().toString().trim().length() > 0 && 
+						yeaadd.getText().toString().trim().length() > 0) {
+					
 					myCellar.addBottle(mkradd.getText().toString(), 
 										typadd.getText().toString(), 
 										yeaadd.getText().toString(), 
@@ -400,19 +346,8 @@ public class iCellar extends Activity implements OnItemClickListener{
 					regadd.setText("");
 					vinadd.setText("");
 					
-					mkrtitadd.setVisibility(View.GONE);
-			    	mkradd.setVisibility(View.GONE);
-			    	typtitadd.setVisibility(View.GONE);
-			    	typadd.setVisibility(View.GONE);
-			    	yeatitadd.setVisibility(View.GONE);
-			    	yeaadd.setVisibility(View.GONE);
-			    	regtitadd.setVisibility(View.GONE);
-			    	regadd.setVisibility(View.GONE);
-			    	vintitadd.setVisibility(View.GONE);
-			    	vinadd.setVisibility(View.GONE);
-			    	
-			    	retadd.setVisibility(View.GONE);
-			    	saveadd.setVisibility(View.GONE);
+					View temp = findViewById(R.id.addbott);
+					temp.setVisibility(View.GONE);
 			    	
 			    	setListAdapters();
 				}
@@ -437,19 +372,8 @@ public class iCellar extends Activity implements OnItemClickListener{
 					regadd.setText("");
 					vinadd.setText("");
 					
-					mkrtitadd.setVisibility(View.GONE);
-			    	mkradd.setVisibility(View.GONE);
-			    	typtitadd.setVisibility(View.GONE);
-			    	typadd.setVisibility(View.GONE);
-			    	yeatitadd.setVisibility(View.GONE);
-			    	yeaadd.setVisibility(View.GONE);
-			    	regtitadd.setVisibility(View.GONE);
-			    	regadd.setVisibility(View.GONE);
-			    	vintitadd.setVisibility(View.GONE);
-			    	vinadd.setVisibility(View.GONE);
-			    	
-			    	retadd.setVisibility(View.GONE);
-			    	save.setVisibility(View.GONE);
+					View temp = findViewById(R.id.addbott);
+					temp.setVisibility(View.GONE);
 			    	
 			    	setListAdapters();
 				}
