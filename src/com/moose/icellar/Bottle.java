@@ -1,5 +1,4 @@
-package com.moose.icellar;
-
+package icellar;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -349,12 +348,12 @@ public class Bottle
     public String toString()
     {
         String result = "";
-        result += this.maker + " | " + this.type + " | " + this.year + " | " + this.region + " | " + this.vineyard + " | " + this.rating + " | ";
+        result += this.maker + "," + this.type + "," + this.year + "," + this.region + "," + this.vineyard + "," + this.rating + ",";
         for ( Comment cm : comments )
         {
-            result += " ~ " + cm.getDate() + "-" + cm.getUser() + "-" + cm.getText();
+            result += cm.getDate() + "-" + cm.getUser() + "-" + cm.getText() + ";";
         }
-        return result;
+        return result.substring(0, result.length()-1);
     }
 }
 
