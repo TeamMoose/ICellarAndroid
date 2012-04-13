@@ -16,7 +16,7 @@ public class FTPHelper
     private static FTPClient client;
     private static final String ftpUser = "iCellar";
     private static final String ftpPass = "1cellar!";
-    private static final String ftpSite = "ftp.reverteddesigns.com";
+    private static final String ftpSite = "ftp.reverteddesigns.com";//"66.96.147.11";
     private static final String baseFP = "/wineData/";
     
     public FTPHelper()
@@ -27,9 +27,10 @@ public class FTPHelper
     public static InputStream getFTPInputStream( String filepath )
     {
         client = new FTPClient();
+        client.setDefaultTimeout(100000);
         try {
             int reply;
-            client.connect(ftpSite);
+            client.connect(ftpSite, 2222);
 
             // After connection attempt, you should check the reply code to verify
             // success.
@@ -49,9 +50,9 @@ public class FTPHelper
             System.out.println(ex);
         }
             catch (SocketException ex) {
-            Logger.getLogger(FTPHelper.class.getName()).log(Level.SEVERE, null, ex);
+           System.out.println(ex);
         } catch (IOException ex) {
-            Logger.getLogger(FTPHelper.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
         return null;
     }

@@ -30,7 +30,9 @@ public final class R {
         public static final int date=0x7f070002;
         public static final int delete=0x7f07001e;
         public static final int edit=0x7f07001f;
-        public static final int imageView1=0x7f070035;
+        public static final int imageView1=0x7f07003d;
+        public static final int logconfirm=0x7f07003a;
+        public static final int loginlay=0x7f070033;
         public static final int lv1=0x7f070009;
         public static final int maker=0x7f070003;
         public static final int makerInfo=0x7f07000c;
@@ -39,6 +41,9 @@ public final class R {
         public static final int mkradd=0x7f070024;
         public static final int mkrtit=0x7f07000d;
         public static final int mkrtitadd=0x7f070023;
+        public static final int passfield=0x7f070039;
+        public static final int passinfo=0x7f070037;
+        public static final int passtit=0x7f070038;
         public static final int reg=0x7f070017;
         public static final int regadd=0x7f07002d;
         public static final int regionInfo=0x7f070015;
@@ -50,10 +55,10 @@ public final class R {
         public static final int save=0x7f070032;
         public static final int saveadd=0x7f070031;
         public static final int tab1=0x7f070007;
-        public static final int tab2=0x7f070033;
+        public static final int tab2=0x7f07003b;
         public static final int tabHost=0x7f070006;
         public static final int text=0x7f070000;
-        public static final int txt2=0x7f070034;
+        public static final int txt2=0x7f07003c;
         public static final int typ=0x7f070011;
         public static final int typadd=0x7f070027;
         public static final int type=0x7f070005;
@@ -62,6 +67,9 @@ public final class R {
         public static final int typtit=0x7f070010;
         public static final int typtitadd=0x7f070026;
         public static final int user=0x7f070001;
+        public static final int userfield=0x7f070036;
+        public static final int userinfo=0x7f070034;
+        public static final int usertit=0x7f070035;
         public static final int vin=0x7f07001a;
         public static final int vinadd=0x7f070030;
         public static final int vineyardInfo=0x7f070018;

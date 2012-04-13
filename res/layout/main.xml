@@ -369,7 +369,72 @@
         </RelativeLayout>
      <!-- ================================================================================================================= -->
      
-     
+     <!-- Main Login View ================================================================================================================= -->
+     <RelativeLayout
+         android:id="@+id/loginlay"
+         android:layout_height="fill_parent"
+         android:layout_width="fill_parent"
+         android:paddingTop="63dp">
+        
+        <RelativeLayout
+         android:id="@+id/userinfo"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/loginlay"
+         android:paddingTop="1dp">
+         
+        <TextView
+            android:id="@+id/usertit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username: "
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <EditText
+            android:id="@+id/userfield"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/>  
+           
+        </RelativeLayout>
+        
+        <RelativeLayout
+         android:id="@+id/passinfo"
+         android:layout_height="wrap_content"
+         android:layout_width="fill_parent"
+         android:layout_below="@id/userinfo"
+         android:paddingTop="1dp">
+         
+        <TextView
+            android:id="@+id/passtit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password: "
+            android:textSize="15dp"
+            android:textColor="@drawable/iBurg"/>
+        <EditText
+            android:id="@+id/passfield"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:textColor="@drawable/iBlue"/>  
+           
+        </RelativeLayout>
+            
+        <Button
+            android:id="@+id/logconfirm"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/passinfo"
+            android:text="Login" 
+            android:textColor="@drawable/iKhak"
+            android:background="@drawable/iBlue"/> 
+            
+        </RelativeLayout>
+     <!-- ================================================================================================================= -->   
      
      
      
